@@ -9,15 +9,15 @@
     ios_interface:
       authorize: True
       auth_pass: cisco
-      name: GigabitEthernet2
+      name: {{ INTF }}
       enabled: True
   
   - name: CONFIG INTERFACE L3
     ios_l3_interface:
       authorize: True
       auth_pass: cisco
-      name: GigabitEthernet2
-      ipv4: 1.1.1.1/30
+      name: {{ INTF }}
+      ipv4: {{ IPMASK }}
     
     register: result
 
