@@ -1,0 +1,24 @@
+---
+- name: TEST CONFIG INTERFACE
+  hosts: cisco
+  gather_facts: no
+  connection: local
+
+  tasks:  
+  - name: CONFIG INTERFACE L2
+    ios_interface:
+      authorize: True
+      auth_pass: cisco
+      name: GigabitEthernet2
+      enabled: True
+  
+  - name: CONFIG INTERFACE L3
+    ios_l3_interface:
+      authorize: True
+      auth_pass: cisco
+      name: GigabitEthernet2
+      ipv4: 1.1.1.1/30
+    
+    register: result
+
+  #- debug: msg="{{ result.stdout }}"
